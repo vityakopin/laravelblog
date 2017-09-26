@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="../../../../laravel.png">
 
-    <title>Blog Template for Bootstrap</title>
+    <title>My laravel project</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
@@ -25,8 +25,8 @@
 
     <div class="blog-header">
         <div class="container">
-            <h1 class="blog-title">The Bootstrap Blog</h1>
-            <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+            <h1 class="blog-title">The Vitya's Blog</h1>
+            <p class="lead blog-description">A test blog created with Laravel.</p>
         </div>
     </div>
 
