@@ -29,11 +29,21 @@ class User extends Authenticatable
 
     public function comments()
     {
-        $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function posts()
     {
-        $this->hasMany(Post::class);
+        return $this->hasMany(Post::class);
+    }
+
+    public function addPost(Post $post)
+    {
+        $this->posts()->save($post);
+    }
+
+    public function addComment(Comment $comment)
+    {
+        $this->comments()->save($comment);
     }
 }

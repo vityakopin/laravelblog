@@ -13,7 +13,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::latest()->get();
+        $posts = Post::all();
 
         return view('post.index', compact('posts'));
     }
@@ -34,7 +34,10 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        Post::create(request(['title','body']));
+        $post = new Post(request([
+            'title', 'body'
+        ]));
+        auth()->user()->addPost($post);
         return redirect('/posts');
     }
 }
