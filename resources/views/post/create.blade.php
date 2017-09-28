@@ -2,14 +2,15 @@
 
 @section('content')
     <div class="col-sm-8">
-            <form>
+            <form method="post" action="/posts/">
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Title</label>
-                    <input type="text" class="form-control" id="title" placeholder="Title of post">
+                    <input type="text" class="form-control" required id="title" name="title" placeholder="Title of post">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Body</label>
-                    <input type="text" class="form-control" id="body" placeholder="Body of post">
+                    <textarea type="text" class="form-control" id="body" name="body" placeholder="Body of post"></textarea>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
@@ -17,7 +18,10 @@
                         Publicate
                     </label>
                 </div>
+                <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+                @include('layouts.errors')
             </form>
     </div><!-- create form  -->
 @endsection
