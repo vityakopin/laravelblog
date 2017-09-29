@@ -11,6 +11,15 @@
                         {{$comment->user->name}} on
                         {{$comment->created_at->diffForHumans()}}: &nbsp
                         {{$comment->body}}
+                        <div class="col-md-offset-4">
+                            <form action="/posts/{{$comment->id}}" method="post">
+                                {{csrf_field()}}
+                                {{ method_field('DELETE') }}
+                                <button class="btn btn-danger" type="submit">
+                                    <i class="glyphicon-user"></i> Delete
+                                </button>
+                            </form>
+                        </div>
                     </li>
                 @endforeach
             </ul>

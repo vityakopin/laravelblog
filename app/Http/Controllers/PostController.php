@@ -3,19 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index','show']);
+        $this->middleware('auth')->except(['index', 'show']);
     }
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::latest()
+            ->filter(request(['month','year']))
+            ->get();
 
-        return view('post.index', compact('posts'));
+        return view('post.index', compact('posts', 'archives'));
     }
 
     public function show(Post $post)
@@ -30,12 +33,13 @@ class PostController extends Controller
 
     public function store()
     {
-        $this->validate(request(),[
+        $this->validate(request(), [
             'title' => 'required',
             'body' => 'required'
         ]);
         $post = new Post(request([
-            'title', 'body'
+            'title',
+            'body'
         ]));
         auth()->user()->addPost($post);
         return redirect('/posts');

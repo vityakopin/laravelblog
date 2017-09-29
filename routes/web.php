@@ -20,6 +20,7 @@ Route::get('/posts/create', 'PostController@create');
 Route::post('/posts', 'PostController@store');
 Route::get('/posts/{post}', 'PostController@show');
 Route::post('/posts/{post}/comment', 'CommentController@store');
+Route::delete('/posts/{comment}', 'CommentController@delete');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
